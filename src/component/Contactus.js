@@ -1,6 +1,6 @@
 const Contactus = () => {
     return (
-        <div className="bg-purple-200 h-96 mt-10 text-center">
+        <div className="bg-purple-200 h-96 mt-10 text-center pt-20">
             <h1 className="text-7xl font-bold">Contact Us</h1>
             <text className="font-bold mt-8 p-2">Email: support@swiggy.in</text>
             <div className="text-center mt-12">

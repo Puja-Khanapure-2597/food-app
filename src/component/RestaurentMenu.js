@@ -38,8 +38,7 @@ const RestaurentMenu = () => {
 
 
    return (
-      <div>
-         <div className="text-center my-4 " >
+         <div className="text-center my-4 relative pt-20" >
             <div>
                <span className="font-bold text-2xl">{selectedItem?.restaurantName}</span>
             </div>
@@ -56,7 +55,6 @@ const RestaurentMenu = () => {
             }
 
          </div>
-      </div>
    )
 }
 export default RestaurentMenu

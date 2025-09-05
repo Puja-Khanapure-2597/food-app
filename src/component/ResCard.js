@@ -3,16 +3,16 @@
 const ResCard = ({restData}) => {
     const {restaurantName,cuisine,stars,avgTime,imageUrl}=restData
     return (
-      <div className="bg-gray-200 px-2 m-4 w-40 h-60" >
+      <div className="bg-gray-50 flex-row rounded-xl  justify-items-center px-2 m-4 w-48 h-60 " >
         <img
-           className="h-28 w-36 py-2"
+           className="h-28 w-36 py-2 rounded-xl align-middle"
            alt="food logo"
           src={imageUrl}/>
-        <div className="ResName">
+        <div className="ResName pt-4">
           <h4 className="font-bold">{restaurantName}</h4>
-          <h5>{cuisine}</h5>
-          <h5>{stars}stars</h5>
-          <h5>{avgTime}min</h5>
+          <h5 className="font-semibold overflow-hidden text-ellipsis whitespace-nowrap w-48">{cuisine}</h5>
+          <h5 className="font-mono">{stars}stars</h5>
+          <h5 className="font-extralight">{avgTime}min</h5>
         </div>
       </div>
     );

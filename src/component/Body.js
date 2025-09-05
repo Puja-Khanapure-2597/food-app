@@ -12,7 +12,7 @@ const Body = () => {
   const [filterListData, setFilterListData] = useState(restAllList)
   const [serachText, setSerachText] = useState()
   const RestPromotedCard = WithPromotedCard(ResCard)
-  const {userName,setUserName}=useContext(UserContext)
+  const { userName, setUserName } = useContext(UserContext)
 
   const filterList = () => {
     //console.log('filterListData',filterListData)
@@ -20,7 +20,15 @@ const Body = () => {
     //console.log('finalFiltList',finalFiltList)
     setFilterListData(finalFiltList)
   }
-
+  const searchList = (e) => {
+    if (e.target.value == '') {
+      setFilterListData(restAllList)
+    }
+    else {
+      const filterSearchList = filterListData.filter((val) => val.restaurantName.includes(e.target.value))
+      setFilterListData(filterSearchList)
+    }
+  }
   useEffect(() => {
     fecthData()
   }, [])
@@ -39,24 +47,23 @@ const Body = () => {
   }
   return (
     <div className="main-body">
-      <div className="flex mx-3">
+      <div className="flex mx-3 pt-20">
         <div className='py-4'>
-          <input className='border border-solid border-black' type='text' value={serachText} onChange={(e) => {
-            setSerachText(e.target.value)
-          }} />
-          <button
+          <input className='border border-solid border-black' type='text' value={serachText} onChange={(e) => { searchList(e) }}
+          />
+          {/* <button
             className='px-4 mx-2 bg-green-100 rounded-md'
             onClick={() => {
               const filterSearchList = filterListData.filter((val) => val.restaurantName.toLocaleLowerCase().includes(serachText.toLocaleLowerCase()))
               setFilterListData(filterSearchList)
             }}>
             search
-          </button>
+          </button> */}
         </div>
         <div>
-        <button className='px-4 my-4 mx-2 bg-gray-100' onClick={filterList}>Top Rated Resturant</button>
-        <label className=' mx-2'>UserName:</label>
-        <input className='border border-solid border-black' px-4 mx-4 type='text' value={userName} onChange={(e)=>{setUserName(e.target.value)}} />
+          <button className='px-4 my-4 mx-2 bg-gray-100' onClick={filterList}>Top Rated Resturant</button>
+          <label className='mx-2'>UserName:</label>
+          <input className='border border-solid border-black' px-4 mx-4 type='text' value={userName} onChange={(e) => { setUserName(e.target.value) }} />
         </div>
       </div>
       <div className="flex flex-wrap my-4 items-center ml-10" >
